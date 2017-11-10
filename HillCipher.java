@@ -48,17 +48,7 @@ public class HillCipher
 	
 	private String removeSpaces(String string)
 	{
-		String str = "";
-		
-		for(int i = 0; i < string.length(); i++)
-        {
-        	if(string.charAt(i) != ' ')
-        	{
-        		str += string.charAt(i);
-        	}
-        }
-        
-        return str;
+		return string.replaceAll(" ","");
 	}
 	
 	private int[] matrixMult(int[] x, int[][] y)
