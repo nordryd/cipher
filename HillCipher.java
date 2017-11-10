@@ -46,10 +46,10 @@ public class HillCipher
 		return i - 1;
 	}
 	
-	private String removeSpaces(String string)
-	{
-		return string.replaceAll(" ","");
-	}
+//	private String removeSpaces(String string)
+//	{
+//		return string.replaceAll(" ","");
+//	}
 	
 	private int[] matrixMult(int[] x, int[][] y)
 	{
@@ -168,7 +168,7 @@ public class HillCipher
 	public String encrypt(String plaintext)
 	{
 		String ciphertext = "";		
-		String plainSansSpaces = removeSpaces(plaintext.toLowerCase());
+		String plainSansSpaces = plaintext.toLowerCase().replaceAll(" ","");
 		
 		//padding
 		if((plainSansSpaces.length() % matrixSize) != 0)
@@ -224,7 +224,7 @@ public class HillCipher
 	public String decrypt(String ciphertext)
 	{
 		String plaintext = "";
-		String cipherSansSpaces = removeSpaces(ciphertext.toLowerCase());
+		String cipherSansSpaces = ciphertext.toLowerCase().replaceAll(" ","");
 		
 		int[] enumeratedCiphertext = new int[cipherSansSpaces.length()];
 		for(int i = 0; i < enumeratedCiphertext.length; i++)
